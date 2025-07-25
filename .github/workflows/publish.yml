@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set executable permissions for Build script
+        run: chmod +x ./.github/build.sh
       - name: Build Documentation
         run: ./.github/build.sh
       - name: Setup Pages
