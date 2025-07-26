@@ -28,19 +28,12 @@ jobs:
         run: chmod +x ./.github/build.sh
       - name: Build Documentation
         run: ./.github/build.sh
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3 # https://github.com/peaceiris/actions-gh-pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          force_orphan: true
-          exclude_assets: '.github,openapi,.redocly.yaml,LICENSE,README.md,make.sh'
-      #- name: Setup Pages
-        #uses: actions/configure-pages@v5
-      #- name: Upload artifact
-        #uses: actions/upload-pages-artifact@v3
-        #with:
-          #path: './redoc-static.html'
-      #- name: Deploy to GitHub Pages
-        #id: deployment
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
         #uses: actions/deploy-pages@v
