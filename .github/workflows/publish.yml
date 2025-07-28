@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set executable permissions for Build script
+        run: chmod +x ./.github/build.sh
       - name: Build Documentation
         run: ./.github/build.sh
       - name: Setup Pages
@@ -31,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './redoc-static.html'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
