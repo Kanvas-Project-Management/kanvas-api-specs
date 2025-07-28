@@ -1,0 +1,52 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the card as a UUID.
+    example: 37ee8a8d-7bda-42b2-969e-525da2b574b2
+  title:
+    type: string
+    description: The main title of the card.
+    example: Reorganise File Structure
+  description:
+    type: string
+    description: A (optional) description of the card.
+    example: The file structure of the project must be organised to confirm with industry standards.
+  labels:
+    type: array
+    description: A list of labels that the card is categorised under as an array of strings.
+    example: [Programming, Administration]
+  startDate:
+    type: string
+    description: A (optional) timestamp as a string in YYYY-MM-DD hh:mm:ss format.
+    example: '2025-02-25 12:23:22'
+  endDate:
+    type: string
+    description: A (optional) timestamp as a string in YYYY-MM-DD hh:mm:ss format.
+    example: '2025-02-25 12:23:22'
+  checklistID:
+    type: string
+    description: A (optional) ID of a checklist as a UUID. If provided, then this card has a checklist of the following ID.
+    example: 37ee8a8d-7bda-42b2-969e-525da2b574b2
+  swimlaneName:
+    type: string
+    description: The name of the swimlane that this card belongs to.
+    example: To-Do
+  cardPosition:
+    type: integer
+    description: The position of the swimlane that this card is in.
+    example: 3
+  creator:
+    type: string
+    description: The email of the User that created the card.
+    example: user@example.com
+  assigned:
+    type: string
+    description: The email of the User that has been assigned to this card.
+    example: user@example.com
+required:
+  - id
+  - title
+  - swimlaneName
+  - cardPosition
+  - creator

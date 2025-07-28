@@ -1,0 +1,6 @@
+type: object
+properties:
+  message:
+    type: string
+    description: The message describing the potential error that might occur.
+    example: Something has gone wrong with this request!

@@ -4,4 +4,5 @@ info:
   description: The main backend API specification for Kanvas, the FOSS project management software.
   version: 1.0.0
 paths:
-
+  /card/{id}:
+    $ref: "./paths/card/get-card-from-id.yaml"

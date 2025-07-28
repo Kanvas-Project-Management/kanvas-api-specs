@@ -1,0 +1,29 @@
+get:
+  summary: Get Card from ID
+  operationId: getCardFromID
+  description: Get a card given its UUID.
+  parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    400:
+      description: Something was wrong with the request in some way.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/responses/Error.yaml'
+    404:
+      description: The Card was not found. The UUID was valid, but it was not identified as a valid Card ID.
+    405:
+      description: You used the wrong method to make this request with.
+    403:
+      description: You are unauthorised to make this request.
+    200:
+      description: The Card that has been found.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/entities/Card.yaml'
