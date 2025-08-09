@@ -2,6 +2,8 @@ get:
   summary: Get Card from ID
   operationId: getCardFromID
   description: Get a card given its UUID.
+  security:
+    - BearerAuth: []
   parameters:
     - in: path
       name: id
@@ -15,12 +17,18 @@ get:
         application/json:
           schema:
             $ref: '../../schemas/responses/Error.yaml'
+    401:
+      description: You are unauthorised to make this request. You must authenticate yourself to make this request.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/responses/UnauthorisedError.yaml'
     404:
       description: The Card was not found. The UUID was valid, but it was not identified as a valid Card ID.
     405:
       description: You used the wrong method to make this request with.
     403:
-      description: You are unauthorised to make this request.
+      description: You do not have permissions to make this request.
     200:
       description: The Card that has been found.
       content:
