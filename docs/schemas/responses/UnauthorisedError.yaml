@@ -1,0 +1,6 @@
+type: object
+properties:
+  message:
+    type: string
+    description: The message describing that the user is unauthorised.
+    example: You must authorise yourself to make this request!

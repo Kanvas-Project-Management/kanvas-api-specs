@@ -3,6 +3,12 @@ info:
   title: Kanvas Backend API
   description: The main backend API specification for Kanvas, the FOSS project management software.
   version: 1.0.0
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
 paths:
   /card/{id}:
     $ref: "./paths/card/get-card-from-id.yaml"
